@@ -2,6 +2,7 @@
 # Apuntes para base de datos ,grupo ASI1
 En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así como ejercicios que hice , explicando como resolverlos y los detalles que más me costaron
 ## Índice
+-[Explicaciones-Principales](#explicaciones-principales)
 - [SELECT-BASICS](#select-basics)
     + [EJERCICIO 1.1](#ejercicio-11)
     + [EJERCICIO 1.2](#ejercicio-12)
@@ -18,8 +19,10 @@ En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así 
 - [MORE-JOIN-OPERATIONS](#MORE-JOIN-OPERATIONS)
 - [USING-NULL](#USING-NULL)
 
-# SELECT-BASICS
+# ***:small_blue_diamond: EXPLICACIONES-PRINCIPALES :small_blue_diamond:***
 
+# SELECT-BASICS
+ 
 ## ***Ejercicio 1.1***
 > Mostrar la población de alemania
 ```SQL
@@ -48,7 +51,8 @@ Por ejemplo: WHERE area >=200000 AND area <=250000 -- Esto tendría el mismo sig
 # SELECT-NAME
 En estos ejercicios utilizamos herramientas como '%' para sacar nombres de ciertos países
 
-:heavy_exclamation_mark: El porcentaje actúa como un relleno pero en el lugar donde se encuentra hay un texto que desconocemos
+:heavy_exclamation_mark: El porcentaje actúa como un relleno pero en el lugar donde se encuentra hay un texto que desconocemos 
+:heavy_exclamation_mark:
 
 ## ***Ejercicio 2.1*** 
 > Busca el país que empieza por 'Y'
