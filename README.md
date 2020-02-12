@@ -3,9 +3,9 @@
 En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así como ejercicios que hice , explicando como resolverlos y los detalles que más me costaron
 ## Índice
 - [SELECT-BASICS](#select-basics)
-    + [ejercicio 1.1](#ejercicio-1.1)
-    + ejercicio 1.2
-    + ejercicio 1.3
+    + [ejercicio 1.1](#ejercicio-11)
+    + [ejercicio 1.2](#ejercicio-12)
+    + [ejercicio 1.3](#ejercicio-13)
 - [SELECT-NAME](#SELECT-NAME)
 - [SELECT-FROM-WORLD](#SELECT-FROM-WORLD)
 - [SELECT-FROM-NOBEL](#SELECT-FROM-NOBEL)
@@ -18,14 +18,14 @@ En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así 
 # SELECT-BASICS
 
 
-## ***Ejercicio 1.1*** 
+## Ejercicio 1.1 
 > Mostrar la población de alemania
 ```SQL
 SELECT population
 FROM world
 WHERE name ='GERMANY';
 ```
-## ***Ejercicio 1.2*** 
+## Ejercicio 1.2 
 > Mostrar el nombre y la población de 'Noruega' 'Suecia' y 'Dinamarca'
 ```SQL
 SELECT name,population
@@ -34,7 +34,7 @@ WHERE name = 'Sweden'
 OR name = 'Norway'
 OR name = 'Denmark' ;
 ```
- ## ***Ejercicio 1.3*** 
+ ## Ejercicio 1.3
  > Mostrar el país y el área para países con un área entre 200,000 y 250,000.
 ```SQL
 SELECT name, area FROM world
