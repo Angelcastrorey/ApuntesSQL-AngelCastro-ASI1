@@ -67,6 +67,13 @@ WHERE name like 'Y%'
 SELECT name FROM world
 WHERE name LIKE '%y'
 ```
+## ***Ejercicio 2.3***
+>Buscar los continentes que tengan la letra 'x'
+```SQL
+SELECT name FROM world
+WHERE name LIKE '%x%'
+  ```
+
 
 
 
