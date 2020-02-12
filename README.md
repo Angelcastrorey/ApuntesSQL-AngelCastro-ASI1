@@ -15,13 +15,13 @@ En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así 
 # SELECT-BASICS
 
 
-Ejercicio 1-Mostrar la población de alemania
+***Ejercicio 1***-Mostrar la población de alemania
 ```SQL
 SELECT population
 FROM world
 WHERE name ='GERMANY';
 ```
-Ejercicio 2-Mostrar el nombre y la población de 'Noruega' 'Suecia' y 'Dinamarca'
+***Ejercicio 2***-Mostrar el nombre y la población de 'Noruega' 'Suecia' y 'Dinamarca'
 ```SQL
 SELECT name,population
 FROM world
@@ -29,7 +29,7 @@ WHERE name = 'Sweden'
 OR name = 'Norway'
 OR name = 'Denmark' ;
 ```
-Ejercicio 3-Mostrar el país y el área para países con un área entre 200,000 y 250,000.
+***Ejercicio 3***-Mostrar el país y el área para países con un área entre 200,000 y 250,000.
 ```SQL
 SELECT name, area FROM world
 WHERE area BETWEEN 200000 AND 250000;
@@ -39,7 +39,7 @@ Por ejemplo: WHERE area >=200000 AND area <=250000 -- Esto tendría el mismo sig
 
 # SELECT-NAME
 
-Ejercicio 1-Busca el país que empieza por 'Y'
+***Ejercicio 1***-Busca el país que empieza por 'Y'
 ```SQL
 SELECT name
 FROM world
