@@ -19,7 +19,7 @@ Ejercicio 1-Mostrar la población de alemania
 ```SQL
 SELECT population
 FROM world
-WHERE name ='GERMANY'
+WHERE name ='GERMANY';
 ```
 Ejercicio 2-Mostrar el nombre y la población de 'Noruega' 'Suecia' y 'Dinamarca'
 ```SQL
@@ -32,5 +32,7 @@ OR name = 'Denmark' ;
 Ejercicio 3-Mostrar el país y el área para países con un área entre 200,000 y 250,000.
 ```SQL
 SELECT name, area FROM world
-  WHERE area BETWEEN 200000 AND 250000
+WHERE area BETWEEN 200000 AND 250000;
+-- En caso de no poder utilizar between ,tendríamos una excepción que sería utilizar el signo > o < junto con signos de =
 ```
+
