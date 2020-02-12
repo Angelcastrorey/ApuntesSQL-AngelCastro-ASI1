@@ -20,7 +20,6 @@ En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así 
 
 # SELECT-BASICS
 
-
 ## ***Ejercicio 1.1***
 > Mostrar la población de alemania
 ```SQL
@@ -47,15 +46,18 @@ Por ejemplo: WHERE area >=200000 AND area <=250000 -- Esto tendría el mismo sig
 ```
 
 # SELECT-NAME
+En estos ejercicios utilizamos herramientas como '%' para sacar nombres de ciertos países
 
-***Ejercicio 2.1*** 
+:heavy_exclamation_mark: El porcentaje actúa como un relleno pero en el lugar donde se encuentra hay un texto que desconocemos
+
+## ***Ejercicio 2.1*** 
 > Busca el país que empieza por 'Y'
 ```SQL
 SELECT name
 FROM world
 WHERE name like 'Y%'
 ```
-***Ejercicio 2.2***
+## ***Ejercicio 2.2***
 > Busca los países que terminen en 'Y'
 ```SQL
 SELECT name FROM world
