@@ -2,7 +2,7 @@
 # Apuntes para base de datos ,grupo ASI1
 En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así como ejercicios que hice , explicando como resolverlos y los detalles que más me costaron
 ## Índice
--[Explicaciones-Principales](#explicaciones-principales)
+- [Explicaciones-Principales](#explicaciones-principales)
 - [SELECT-BASICS](#select-basics)
     + [EJERCICIO 1.1](#ejercicio-11)
     + [EJERCICIO 1.2](#ejercicio-12)
