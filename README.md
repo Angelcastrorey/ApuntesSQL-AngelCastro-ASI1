@@ -37,3 +37,13 @@ WHERE area BETWEEN 200000 AND 250000;
 Por ejemplo: WHERE area >=200000 AND area <=250000 -- Esto tendría el mismo significado que la consulta anterior
 ```
 
+# SELECT-NAME
+
+Ejercicio 1-Busca el país que empieza por 'Y'
+```SQL
+SELECT name
+FROM world
+WHERE name like 'Y%'
+```
+
+
