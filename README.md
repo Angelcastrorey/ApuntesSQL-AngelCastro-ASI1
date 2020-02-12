@@ -3,6 +3,9 @@
 En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así como ejercicios que hice , explicando como resolverlos y los detalles que más me costaron
 ## Índice
 - [SELECT-BASICS](#select-basics)
+    + [ejercicio 1.1](#ejercicio-1.1)
+    + ejercicio 1.2
+    + ejercicio 1.3
 - [SELECT-NAME](#SELECT-NAME)
 - [SELECT-FROM-WORLD](#SELECT-FROM-WORLD)
 - [SELECT-FROM-NOBEL](#SELECT-FROM-NOBEL)
@@ -15,13 +18,15 @@ En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así 
 # SELECT-BASICS
 
 
-***Ejercicio :one:*** -Mostrar la población de alemania
+## ***Ejercicio 1.1*** 
+> Mostrar la población de alemania
 ```SQL
 SELECT population
 FROM world
 WHERE name ='GERMANY';
 ```
-***Ejercicio :two:*** -Mostrar el nombre y la población de 'Noruega' 'Suecia' y 'Dinamarca'
+## ***Ejercicio 1.2*** 
+> Mostrar el nombre y la población de 'Noruega' 'Suecia' y 'Dinamarca'
 ```SQL
 SELECT name,population
 FROM world
@@ -29,7 +34,8 @@ WHERE name = 'Sweden'
 OR name = 'Norway'
 OR name = 'Denmark' ;
 ```
-***Ejercicio :three:*** -Mostrar el país y el área para países con un área entre 200,000 y 250,000.
+ ## ***Ejercicio 1.3*** 
+ > Mostrar el país y el área para países con un área entre 200,000 y 250,000.
 ```SQL
 SELECT name, area FROM world
 WHERE area BETWEEN 200000 AND 250000;
@@ -39,7 +45,8 @@ Por ejemplo: WHERE area >=200000 AND area <=250000 -- Esto tendría el mismo sig
 
 # SELECT-NAME
 
-***Ejercicio :one:*** -Busca el país que empieza por 'Y'
+***Ejercicio :one:*** 
+> Busca el país que empieza por 'Y'
 ```SQL
 SELECT name
 FROM world
