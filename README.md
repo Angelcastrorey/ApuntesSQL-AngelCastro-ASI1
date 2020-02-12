@@ -19,7 +19,7 @@ En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así 
 - [MORE-JOIN-OPERATIONS](#MORE-JOIN-OPERATIONS)
 - [USING-NULL](#USING-NULL)
 
-# ***:small_blue_diamond: EXPLICACIONES-PRINCIPALES :small_blue_diamond:***
+# __***:small_blue_diamond: EXPLICACIONES-PRINCIPALES :small_blue_diamond:***__
 
 # SELECT-BASICS
  
