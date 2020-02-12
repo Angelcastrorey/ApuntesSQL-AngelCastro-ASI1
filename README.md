@@ -7,6 +7,9 @@ En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así 
     + [EJERCICIO 1.2](#ejercicio-12)
     + [EJERCICIO 1.3](#ejercicio-13)
 - [SELECT-NAME](#SELECT-NAME)
+    + [EJERCICIO 2.1-2.5](#ejercicio-21-25)
+    +
+    +
 - [SELECT-FROM-WORLD](#SELECT-FROM-WORLD)
 - [SELECT-FROM-NOBEL](#SELECT-FROM-NOBEL)
 - [SELECT-WITHIN-SELECT](#SELECT-WITHIN-SELECT)
@@ -18,14 +21,14 @@ En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así 
 # SELECT-BASICS
 
 
-## Ejercicio 1.1 
+## ***Ejercicio 1.1***
 > Mostrar la población de alemania
 ```SQL
 SELECT population
 FROM world
 WHERE name ='GERMANY';
 ```
-## Ejercicio 1.2 
+## ***Ejercicio 1.2*** 
 > Mostrar el nombre y la población de 'Noruega' 'Suecia' y 'Dinamarca'
 ```SQL
 SELECT name,population
@@ -34,7 +37,7 @@ WHERE name = 'Sweden'
 OR name = 'Norway'
 OR name = 'Denmark' ;
 ```
- ## Ejercicio 1.3
+ ## ***Ejercicio 1.3***
  > Mostrar el país y el área para países con un área entre 200,000 y 250,000.
 ```SQL
 SELECT name, area FROM world
@@ -45,12 +48,19 @@ Por ejemplo: WHERE area >=200000 AND area <=250000 -- Esto tendría el mismo sig
 
 # SELECT-NAME
 
-***Ejercicio :one:*** 
+***Ejercicio 2.1*** 
 > Busca el país que empieza por 'Y'
 ```SQL
 SELECT name
 FROM world
 WHERE name like 'Y%'
 ```
+***Ejercicio 2.2***
+> Busca los países que terminen en 'Y'
+```SQL
+SELECT name FROM world
+WHERE name LIKE '%y'
+```
+
 
 
