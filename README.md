@@ -20,6 +20,22 @@ En estos apuntes tendremos la parte correspondiente al aprendizaje de SQL ,así 
 
 ***WHERE***: Sirve para especificar criterios que tienen que cumplir los valores de campo para que los registros que contienen los valores se incluyan en los resultados de la consulta.
 
+***AND*** : Sirve para filtrar varias condiciones que se deben de cumplir al mismo tiempo
+
+***NOT*** :Muestra el registro cuando la condición no es correcta
+
+***OR*** :Tiene el mismo uso que AND solo que en este caso solo se debe cumplir una de las condiciones
+
+***BETWEEN*** : Siver para establecer unos rangos de valores entre los que se van a buscar los datos [También puede usarse < o >]
+
+***IN*** :Permite introducir varios valores dentro de un predicado
+
+***LIKE*** : Se utiliza en la clausula ***WHERE*** y a diferencia del = permite usar elementos especiales como:%
+
+***length*** :Sirve para dar el número de carácteres de una expresión de cadena
+
+***ROUND*** : Sirve para redondear una cifra que le pedimos
+
 
 # SELECT-BASICS
  
@@ -398,7 +414,130 @@ AND W1.name <> W2.name
 
 # SUM-AND-COUNT
 
+## ***Ejercicio 6.1***
+>Mostrar la población total del mundo
+```SQL
+SELECT SUM(population) as total
+FROM world;
+```
+NOTA:La función SUM sirve para coger todos los valores que le especifiquemos y sumarlos para dar 1 valor
 
+## ***Ejercicio 6.2***
+>Enumerar los continentes solo 1 vez
+```sql
+SELECT distinct(continent)
+FROM world;
+```
+NOTA:El distinct evita duplicados y solo envía el valor 1 vez
+
+## ***Ejercicio 6.3***
+>Cuantos países tienen al menos un área de 1000000?
+```sql
+SELECT COUNT(AREA)
+FROM world
+WHERE area >=1000000 ;
+```
+NOTA:El count reune todos los valores y nos lo devuelve en una tupla con el número de tuplas que tiene una columna
+
+## ***Ejercicio 6.4***
+>Enumere los continentes que tienen una población total de al menos 100 millones.
+```SQL
+SELECT continent
+FROM world
+GROUP BY continent
+HAVING SUM(population) > 100000000;
+```
+NOTA:El group by nos permite agrupar por tuplas y el having se utiliza para realizar predicados que no podemos realizar en el ***where***
+
+# JOIN
+
+## ***Ejercicio 7.1***
+>Mostrar el jugador, teamid, estadio y mdate para cada gol alemán.
+```SQL
+SELECT player,teamid,stadium,mdate
+  FROM game JOIN goal ON (id=matchid AND teamid='ger');
+  ```
+  NOTA:Con la cláusula JOIN podemos seleccionar datos de distintas tablas para así conseguir los datos que necesitamos
+
+## ***Ejercicio 7.2***
+>Enumere al jugador por cada gol marcado en un juego donde el estadio fue 'Estadio Nacional, Varsovia'
+```sql
+SELECT player
+FROM goal JOIN game ON (id = matchid AND stadium = 'National Stadium, Warsaw');
+```
+NOTA:Tanto en este ejercicio como en el anterior tenemos que usar la cláusula ***JOIN ON*** para especificar la relación entre las claves de las distintas tablas,ya que sino no funcionaría
+
+## ***Ejercicio 7.3***
+>Muestre el nombre de todos los jugadores que marcaron un gol contra Alemania.
+```sql
+SELECT distinct(player)
+  FROM game JOIN goal ON id= matchid 
+    WHERE (team1='GER' OR team2='ger') AND teamid !='ger';
+```
+ NOTA:En este ejercicio usaremos los JOIN ON ,el distinct ,un AND pero también usaremos != (que sirve para especificar que algo es distinto de lo que pondremos después)
+ 
+## ***Ejercicio 7.4***
+>Observar en la consulta y  dado que se enumera cada objetivo. Si fue un gol del equipo1, aparece un 1 en el puntaje1; de lo contrario, hay un 0. Puede SUMAR esta columna para obtener un recuento de los goles marcados por el equipo1. Ordene su resultado por mdate, matchid, team1 y team2.
+```sql
+SELECT mdate,
+       team1,
+       SUM(CASE WHEN teamid = team1 THEN 1 ELSE 0 END) AS score1,
+       team2,
+       SUM(CASE WHEN teamid = team2 THEN 1 ELSE 0 END) AS score2 FROM
+    game LEFT JOIN goal ON (id = matchid)
+    GROUP BY mdate,team1,team2
+    ORDER BY mdate, matchid, team1, team2;
+```
+NOTA:En esta consulta bastante completa utilizaremos el ***left join***  que combina los valores de la primera tabla con los valores de la segunda tabla. Siempre devolverá las filas de la primera tabla, incluso aunque no cumplan la condición.
+
+# MORE-JOIN-OPERATORS
+
+## ***Ejercicio 8.1***
+>Lista de todas las personas que han trabajado con 'Art Garfunkel'.
+```sql
+SELECT DISTINCT name
+FROM actor JOIN casting ON id=actorid
+WHERE movieid IN (SELECT movieid FROM casting JOIN actor ON (actorid=id AND name='Art Garfunkel')) AND name != 'Art Garfunkel'
+GROUP BY name ;
+```
+Nota:En esta consulta tendremos que realizar un JOIN para coger datos de la tabla casting y luego realizar un select within select para sacar la información de las personas que trabajaron con art garfunkel y que su nombre sea distinto al propiamente dicho y por ultimo hacer un group by para agrupar o resultado por columnas
+
+# USING-NULL
+
+## ***Ejercicio 9.1***
+>Enumere los maestros que tienen NULL para su departamento
+```sql
+select name 
+from teacher
+WHERE dept is null;
+```
+NOTA:En esta consulta utilizamos el null para que nos aparezcan los profesores que no tienen departamento
+
+## ***Ejercicio 9.2***
+>tener uenta que INNER JOIN extraña a los maestros sin departamento y a los departamentos sin maestro
+```sql
+SELECT teacher.name, dept.name
+ FROM teacher INNER JOIN dept
+           ON (teacher.dept=dept.id);
+```
+NOTA:Los ***inner join*** solo tienen en cuenta los valores en común de las dos tablas ,el resto de valores no los muestra
+
+## ***Ejercicio 9.3***
+>Usar JOIN  diferente para que todos los departamentos estén listados.
+```sql
+SELECT teacher.name,dept.name
+FROM teacher right join dept on (teacher.dept=dept.id);
+```
+Nota:Tanto el right JOIN como el left JOIN cogen ciertos valores que deberían ser nulos dependiendo de cual usemos,por ejemplo en esta consulta que utilizamos un right join cogera los valores de teacher incluidos en dept y todos los valores de dept 
+
+## ***Ejercicio 9.4***
+>Mostrar nombre del profesor y número de teléfono móvil o '07986444 2266'
+```sql
+SELECT name,
+COALESCE(mobile, '07986 444 2266')
+FROM teacher;
+```
+NOTA:La función de coalesce es evaluar los argumentos en orden y devolver el primer valor que no sea nulo
 
   
 
